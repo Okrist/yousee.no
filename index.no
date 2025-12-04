@@ -1,11 +1,212 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <title>Yousee.no</title>
+  <meta charset="UTF-8" />
+  <title>YouSee.no – Mobiltelefoner og utstyr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --green: #00a36d;
+      --dark: #0b1b1a;
+      --light: #f5f7f8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { background: white; color: #222; }
+    header { background: var(--dark); color: white; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+    .logo { font-weight: 700; font-size: 1.2rem; }
+    nav a { color: #dfe; margin-left: 18px; text-decoration: none; font-size: 0.95rem; }
+    nav a:hover { color: white; }
+    .btn { display: inline-block; padding: 10px 20px; border-radius: 999px; border: none; cursor: pointer; font-weight: 600; }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-outline { background: transparent; border: 1px solid white; color: white; }
+    main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; padding: 32px 20px; margin: 16px 0 32px; background: radial-gradient(circle at top left, #0f3, #060); border-radius: 18px; color: white; }
+    .hero h1 { font-size: clamp(2rem, 3vw + 1rem, 3rem); margin-bottom: 14px; }
+    .hero p { margin-bottom: 18px; max-width: 460px; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; font-size: 0.85rem; }
+    .pill { padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); }
+    .hero-side { background: rgba(0,0,0,0.18); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
+    .hero-phone { border-radius: 12px; border: 1px solid rgba(255,255,255,0.16); padding: 16px; margin-bottom: 12px; }
+    .hero-phone h2 { font-size: 1.1rem; margin-bottom: 4px; }
+    .hero-price { font-size: 1.4rem; font-weight: 700; }
+    .hero-price span { font-size: 0.9rem; font-weight: 400; opacity: 0.9; }
+
+    .section { margin-bottom: 40px; }
+    .section h2 { font-size: 1.6rem; margin-bottom: 10px; }
+    .section p { margin-bottom: 16px; color: #555; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+
+    .card { border-radius: 12px; border: 1px solid #e2e5ea; padding: 16px; background: white; }
+    .card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .card p { font-size: 0.9rem; color: #555; }
+
+    .product-price { margin-top: 8px; font-weight: 700; color: var(--green); }
+    .badge { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; background: #eefcf5; color: #137c4e; margin-bottom: 6px; }
+
+    .contact { background: var(--light); border-radius: 14px; padding: 18px 16px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 18px; align-items: center; }
+    .contact-details p { margin-bottom: 4px; font-size: 0.95rem; }
+    .contact-form label { display: block; font-size: 0.8rem; margin-bottom: 4px; color: #555; }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 8px 10px; margin-bottom: 8px;
+      border-radius: 8px; border: 1px solid #ccd3dd; font-size: 0.9rem;
+    }
+    .contact-form textarea { min-height: 80px; resize: vertical; }
+
+    footer { font-size: 0.8rem; padding: 18px 16px 28px; color: #777; text-align: center; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .hero { grid-template-columns: 1fr; padding: 22px 18px; }
+      .contact { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Yousee.no</h1>
-  <p>Nettsiden er under arbeid.</p>
+  <header>
+    <div class="logo">YouSee.no</div>
+    <nav>
+      <a href="#produkter">Produkter</a>
+      <a href="#tilbud">Tilbud</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>Mobiltelefoner og utstyr – enkelt og trygt fra YouSee.no</h1>
+        <p>
+          Nettbutikk for nye og brukte mobiltelefoner, deksler, ladere og annet tilbehør.
+          Fokus på gode priser, rask levering og norsk kundeservice.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">Nye & brukte mobiler</span>
+          <span class="pill">Tilbehør til iPhone & Android</span>
+          <span class="pill">Norsk nettbutikk</span>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
+          <button class="btn btn-primary">Se populære produkter</button>
+          <button class="btn btn-outline" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});">
+            Kontakt oss
+          </button>
+        </div>
+        <small>Full nettbutikk-løsning kommer snart – foreløpig kan du sende oss en forespørsel.</small>
+      </div>
+
+      <aside class="hero-side">
+        <div class="hero-phone">
+          <h2>Eksempel: iPhone 14 128GB</h2>
+          <p>Liten tekst om en typisk modell du ønsker å selge. Bytt ut tekst og pris med dine faktiske produkter.</p>
+          <div class="hero-price">kr 7 990,- <span>inkl. mva</span></div>
+        </div>
+        <div>
+          <p style="font-size:0.85rem; opacity:0.9;">
+            Dette er kun en demovisning. Når nettbutikken er klar kan du koble til betalingsløsning (Vipps, kort, etc.)
+            og vise ekte lagerstatus.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- KATEGORIER -->
+    <section id="produkter" class="section">
+      <h2>Kategorier</h2>
+      <p>Start med noen hovedkategorier. Du kan senere koble disse til en ekte nettbutikk‑løsning (f.eks. WooCommerce, Shopify el.l.).</p>
+
+      <div class="grid-3">
+        <article class="card">
+          <span class="badge">Mobiler</span>
+          <h3>Smarttelefoner</h3>
+          <p>Nye og brukte iPhone og Android-telefoner. Sorter etter pris, tilstand og lagringsplass.</p>
+          <div class="product-price">Fra kr 1 990,-</div>
+        </article>
+
+        <article class="card">
+          <span class="badge">Tilbehør</span>
+          <h3>Deksler & skjermbeskyttere</h3>
+          <p>Beskytt mobilen din med solide deksler og glass. Velg etter modell og farge.</p>
+          <div class="product-price">Fra kr 149,-</div>
+        </article>
+
+        <article class="card">
+          <span class="badge">Lading</span>
+          <h3>Ladere & kabler</h3>
+          <p>Hurtigladere, trådløse ladere, powerbanks og kabler til de vanligste mobilene.</p>
+          <div class="product-price">Fra kr 99,-</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TILBUD -->
+    <section id="tilbud" class="section">
+      <h2>Utvalgte tilbud</h2>
+      <p>Eksempler – bytt ut med dine faktiske kampanjer når nettbutikken er klar.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Brukt iPhone – Grade A</h3>
+          <p>Nesten som ny, testet og kontrollert. Perfekt om du vil spare penger og miljø.</p>
+          <div class="product-price">Fra kr 4 490,-</div>
+        </article>
+        <article class="card">
+          <h3>Pakkeløsning: Mobil + deksel + glass</h3>
+          <p>Ferdig pakke ved kjøp av ny mobil – få rimeligere tilbehør.</p>
+          <div class="product-price">Spar opptil 20 %</div>
+        </article>
+        <article class="card">
+          <h3>Tilbehørskampanje</h3>
+          <p>3 for 2 på utvalgte ladekabler, adaptere og småtilbehør.</p>
+          <div class="product-price">Rabatt i kassen</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section">
+      <h2>Kontakt oss</h2>
+      <p>Inntil full nettbutikk er på plass kan du sende forespørsel på produkter, priser og bestilling.</p>
+
+      <div class="contact">
+        <div class="contact-details">
+          <h3>Kontaktinformasjon</h3>
+          <p><strong>Firmanavn:</strong> YouSee.no (endre til ditt faktiske navn)</p>
+          <p><strong>E-post:</strong> <a href="mailto:post@yousee.no">post@yousee.no</a> (bytt til korrekt e‑post)</p>
+          <p><strong>Telefon:</strong> +47 99 99 99 99 (bytt til ditt nummer)</p>
+          <p><strong>Adresse:</strong> (legg inn adresse om ønskelig)</p>
+          <p style="margin-top:8px; font-size:0.85rem;">
+            Skriv kort hva du ønsker (modell, farge, lagring, budsjett), så svarer vi på e‑post.
+          </p>
+        </div>
+
+        <form class="contact-form">
+          <label for="navn">Navn</label>
+          <input id="navn" type="text" placeholder="Ditt navn" />
+
+          <label for="epost">E‑post</label>
+          <input id="epost" type="email" placeholder="din@epost.no" />
+
+          <label for="melding">Hva ser du etter?</label>
+          <textarea id="melding" placeholder="F.eks.: iPhone 13, 128GB, svart. Budsjett ca. 5 000 kr."></textarea>
+
+          <button type="button" class="btn btn-primary" style="margin-top:4px;">
+            Send forespørsel (aktiveres når du kobler til backend)
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> YouSee.no – Mobiltelefoner og utstyr. All rights reserved.
+    <br />
+    Denne siden er en enkel statisk landingsside. Nettbutikk‑funksjon (handlekurv / betaling) kommer senere.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
