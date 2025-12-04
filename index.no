@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Yousee.no</title>
+</head>
+<body>
+  <h1>Yousee.no</h1>
+  <p>Nettsiden er under arbeid.</p>
+</body>
+</html>
